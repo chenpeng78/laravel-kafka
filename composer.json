@@ -1,0 +1,32 @@
+{
+    "name": "phpkafka/laravel-kafka",
+    "description": "laravel-kafka",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "陈鹏",
+            "email": "476451758@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "illuminate/database": ">=5.8",
+        "illuminate/support": ">=5.8",
+        "illuminate/queue": ">=5.8",
+        "ext-rdkafka": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "phpkafka\\LaravelQueueKafka\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "phpkafka\\LaravelQueueKafka\\LaravelQueueKafkaServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
