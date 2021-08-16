@@ -157,7 +157,7 @@ class KafkaQueue extends Queue implements QueueContract
                 $this->consumer->subscribe($this->subscribedQueueNames);
             }
             //消费消息并触发回调,超时（毫秒）
-            $message = $this->consumer->consume(1000);
+            $message = $this->consumer->consume(30 * 1000);
             if ($message === null) {
                 return null;
             }
