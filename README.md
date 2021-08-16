@@ -65,5 +65,7 @@ Laravel Kafka队列
 7. 如果你想为特定的消费者Group运行队列
         
         export KAFKA_CONSUMER_GROUP_ID="testgroup" && php artisan queue:work --sleep=3 --tries=3
-        
+8. 多消费者
+	1629095586676.jpg![1629095586676](https://user-images.githubusercontent.com/9024302/129521025-59821ce5-2d4b-43f1-871c-88dc9f207cee.jpg)
+      
    
