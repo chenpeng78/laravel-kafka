@@ -41,7 +41,7 @@ Laravel Kafka队列
     
         $app->register(phpkafka\LaravelQueueKafka\LumenQueueKafkaServiceProvider::class);
 
-5.要使用 kafka 队列驱动程序，需要在 config/database.php 配置文件中配置一个 kafka 连接。
+5.要使用 kafka 队列驱动程序，需要在 config/queue.php 配置文件中配置一个 kafka 连接。
        
        'kafka' => [
             'driver' => 'kafka',
