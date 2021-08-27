@@ -41,7 +41,16 @@ Laravel Kafka队列
     
         $app->register(phpkafka\LaravelQueueKafka\LumenQueueKafkaServiceProvider::class);
 
-5. 将这些属性添加到.env 文件中
+5.要使用 kafka 队列驱动程序，需要在 config/database.php 配置文件中配置一个 kafka 连接。
+       'kafka' => [
+            'driver' => 'kafka',
+            'queue' => env('KAFKA_QUEUE', 'default'),
+            'consumer_group_id' => env('KAFKA_CONSUMER_GROUP_ID', 'laravel_queue'),
+            'brokers' => env('KAFKA_BROKERS', 'localhost'),
+            'sleep_on_error' => env('KAFKA_ERROR_SLEEP', 5),
+            'sleep_on_deadlock' => env('KAFKA_DEADLOCK_SLEEP', 2),
+       ]
+6. 将这些属性添加到.env 文件中
         
 		QUEUE_CONNECTION=kafka
 		
@@ -52,10 +61,10 @@ Laravel Kafka队列
 		KAFKA_QUEUE=default #默认队列名
 		KAFKA_CONSUMER_GROUP_ID=test  #默认分组
 
-6. 如果你想为特定的消费者Group运行队列
+7. 如果你想为特定的消费者Group运行队列
         
         export KAFKA_CONSUMER_GROUP_ID="testgroup" && php artisan queue:work --sleep=3 --tries=3
-7. 多消费者
+8. 多消费者
 	1629095586676.jpg![1629095586676](https://user-images.githubusercontent.com/9024302/129521025-59821ce5-2d4b-43f1-871c-88dc9f207cee.jpg)
       
    
